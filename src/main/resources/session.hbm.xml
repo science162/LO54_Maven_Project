@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="fr.utbm.core.entity.Session" table="session">
+  <composite-id >
+  	<key-property column="id_course" name="course"/>
+  	<key-property column="id_session" name="id_session"/>
+  </composite-id>
+  <property column="start_date" name="start_date" not-null="true"/>
+  <property column="end_date" name="end_date" not-null="true"/>
+  <property column="nbre_place" name="nbre_place" not-null="true"/>
+  <many-to-one column="id_location" name="location" class="fr.utbm.core.entity.Location" unique="true">
+      <set name="clients" inverse="true" table="inscrire">
+      	<key column="id_course"/>
+      	<key column="id_session"/>
+        <many-to-many column="id_clt" class="fr.utbm.core.entity.Client"/>
+      </set>
+  </class>
+</hibernate-mapping>
