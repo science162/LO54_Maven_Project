@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
   <class name="fr.utbm.core.entity.Inscrire" table="inscrire">
+	<composite-id>
+		<key-many-to-one column="id_session" name="session" class="fr.utbm.core.entity.Session"/>
+		<key-many-to-one column="id_clt" name="client" class="fr.utbm.core.entity.Client"/>
+	</composite-id>
   	<property column="date_inscription" name="date_inscription"/>
   </class>
 </hibernate-mapping>

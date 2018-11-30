@@ -35,6 +35,14 @@ public class Client implements java.io.Serializable {
         this.type = type;
     }
 
+    public Set getSession() {
+        return session;
+    }
+
+    public void setSession(Set session) {
+        this.session = session;
+    }
+    
     public int getId_Clt() {
         return id_Clt;
     }
@@ -99,13 +107,6 @@ public class Client implements java.io.Serializable {
         this.type = type;
     }
 
-    public Set<Session> getSession() {
-        return session;
-    }
-
-    public void setSession(Set<Session> session) {
-        this.session = session;
-    }
 
     @Override
     public String toString() {

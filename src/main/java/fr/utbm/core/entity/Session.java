@@ -18,7 +18,7 @@ public class Session implements java.io.Serializable {
     private Date end_date;
     private int nbre_place;
     private Location location;
-    private Set<Client> clients;
+    private Set<Client> client;
 
     public Session() {
     }
@@ -29,6 +29,14 @@ public class Session implements java.io.Serializable {
         this.end_date = end_date;
         this.nbre_place = nbre_place;
         this.location = location;
+    }
+    
+    public Set<Client> getClient() {
+        return client;
+    }
+
+    public void setClient(Set<Client> client) {
+        this.client = client;
     }
 
     public Course getCourse() {
@@ -54,13 +62,7 @@ public class Session implements java.io.Serializable {
     public Location getLocation() {
         return location;
     }
-
-    public Set<Client> getClients() {
-        return clients;
-    }
-    
-    
-
+        
     public void setCourse(Course course) {
         this.course = course;
     }
@@ -85,10 +87,7 @@ public class Session implements java.io.Serializable {
         this.location = location;
     }
 
-    public void setClients(Set<Client> clients) {
-        this.clients = clients;
-    }
-    
+
 
     @Override
     public String toString() {
