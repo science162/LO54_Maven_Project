@@ -6,7 +6,6 @@
 package fr.utbm.core.entity;
 
 import java.util.Objects;
-import java.util.Set;
 
 
 
@@ -14,7 +13,6 @@ public class Course implements java.io.Serializable {
 
     private int id_course;
     private String title;
-    private Set<Session> session;
 
     public Course() {
     }
@@ -22,14 +20,6 @@ public class Course implements java.io.Serializable {
     public Course(int code, String title) {
         this.id_course = code;
         this.title = title;
-    }
-
-    public Set<Session> getSession() {
-        return session;
-    }
-
-    public void setSession(Set<Session> session) {
-        this.session = session;
     }
 
     public int getId_course() {

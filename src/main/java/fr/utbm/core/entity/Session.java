@@ -7,7 +7,6 @@ package fr.utbm.core.entity;
 
 import java.util.Date;
 import java.util.Objects;
-import java.util.Set;
 
 
 public class Session implements java.io.Serializable {
@@ -18,7 +17,6 @@ public class Session implements java.io.Serializable {
     private Date end_date;
     private int nbre_place;
     private Location location;
-    private Set<Client> client;
 
     public Session() {
     }
@@ -31,13 +29,6 @@ public class Session implements java.io.Serializable {
         this.location = location;
     }
     
-    public Set<Client> getClient() {
-        return client;
-    }
-
-    public void setClient(Set<Client> client) {
-        this.client = client;
-    }
 
     public Course getCourse() {
         return course;

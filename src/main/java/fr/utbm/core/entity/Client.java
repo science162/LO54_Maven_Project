@@ -6,7 +6,6 @@
 package fr.utbm.core.entity;
 
 import java.util.Objects;
-import java.util.Set;
 
 
 
@@ -20,7 +19,6 @@ public class Client implements java.io.Serializable {
     private String email;
     private String password;
     private String type ;
-    private Set<Session> session;
     
     public Client() {
     }
@@ -33,14 +31,6 @@ public class Client implements java.io.Serializable {
         this.email = email;
         this.password = password;
         this.type = type;
-    }
-
-    public Set getSession() {
-        return session;
-    }
-
-    public void setSession(Set session) {
-        this.session = session;
     }
     
     public int getId_Clt() {
