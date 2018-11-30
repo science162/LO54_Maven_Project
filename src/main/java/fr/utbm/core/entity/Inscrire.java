@@ -14,7 +14,6 @@ import java.util.Objects;
  */
 public class Inscrire implements java.io.Serializable{
     private Client client;
-    private Course course;
     private  Session session;
     private Date date_inscription;
 
@@ -23,17 +22,12 @@ public class Inscrire implements java.io.Serializable{
 
     public Inscrire(Client client, Course course, Session session, Date date_inscription) {
         this.client = client;
-        this.course = course;
         this.session = session;
         this.date_inscription = date_inscription;
     }
 
     public Client getClient() {
         return client;
-    }
-
-    public Course getCourse() {
-        return course;
     }
 
     public Session getSession() {
@@ -48,10 +42,6 @@ public class Inscrire implements java.io.Serializable{
         this.client = client;
     }
 
-    public void setCourse(Course course) {
-        this.course = course;
-    }
-
     public void setSession(Session session) {
         this.session = session;
     }
@@ -62,14 +52,13 @@ public class Inscrire implements java.io.Serializable{
 
     @Override
     public String toString() {
-        return "Inscrire{" + "client=" + client + ", course=" + course + ", session=" + session + ", date_inscription=" + date_inscription + '}';
+        return "Inscrire{" + "client=" + client + ", session=" + session + ", date_inscription=" + date_inscription + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
         hash = 43 * hash + Objects.hashCode(this.client);
-        hash = 43 * hash + Objects.hashCode(this.course);
         hash = 43 * hash + Objects.hashCode(this.session);
         hash = 43 * hash + Objects.hashCode(this.date_inscription);
         return hash;
@@ -88,9 +77,6 @@ public class Inscrire implements java.io.Serializable{
         }
         final Inscrire other = (Inscrire) obj;
         if (!Objects.equals(this.client, other.client)) {
-            return false;
-        }
-        if (!Objects.equals(this.course, other.course)) {
             return false;
         }
         if (!Objects.equals(this.session, other.session)) {
