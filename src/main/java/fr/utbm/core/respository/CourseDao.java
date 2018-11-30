@@ -5,10 +5,37 @@
  */
 package fr.utbm.core.respository;
 
+import fr.utbm.core.entity.Course;
+import fr.utbm.core.util.HibernateUtil;
+import java.util.ArrayList;
+import java.util.List;
+import org.hibernate.Query;
+import org.hibernate.Session;
+
 /**
  *
  * @author albert-einst
  */
-public class CourseDao {
+public class CourseDao implements java.io.Serializable {
     
+       public Course getCourseById(int id){
+         Session session = HibernateUtil.getSessionFactory().openSession();
+         session.beginTransaction();
+         Course c = new Course();
+         c = (Course)session.get(Course.class, id);
+         return c;
+    }
+    public List<Course> listCourse(){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        List<Course> lstc = new ArrayList<Course>();
+        Query query = session.createQuery("from Course");
+        lstc = query.list();
+        return lstc;
+    }
+    public void saveCourse(Course C){
+         Session session = HibernateUtil.getSessionFactory().openSession();
+         session.beginTransaction();
+         session.save(C);
+         
+    }
 }

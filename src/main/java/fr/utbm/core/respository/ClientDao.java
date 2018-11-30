@@ -7,6 +7,9 @@ package fr.utbm.core.respository;
 
 import fr.utbm.core.entity.Client;
 import fr.utbm.core.util.HibernateUtil;
+import java.util.ArrayList;
+import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 /**
@@ -24,4 +27,15 @@ public class ClientDao implements java.io.Serializable{
          session.close();
          return c;
     }
+    
+    public List<Client> listCourse(){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        List<Client> lstc = new ArrayList<Client>();
+        Query query = session.createQuery("from Course");
+        lstc = query.list();
+        return lstc;
+    }
+    
+ 
+    
 }

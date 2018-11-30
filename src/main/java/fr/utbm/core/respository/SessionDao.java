@@ -5,10 +5,36 @@
  */
 package fr.utbm.core.respository;
 
+import fr.utbm.core.util.HibernateUtil;
+import java.util.List;
+import org.hibernate.Query;
+import org.hibernate.Session;
+
 /**
  *
  * @author albert-einst
  */
 public class SessionDao {
     
+     public List<fr.utbm.core.entity.Session> listSession(){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        List<fr.utbm.core.entity.Session> lsts;
+        Query query = session.createQuery("from Session");
+        lsts = query.list();
+        return lsts;
+    }
+    public void saveCourseSession(fr.utbm.core.entity.Session s){
+         Session session = HibernateUtil.getSessionFactory().openSession();
+         session.beginTransaction();
+         session.save(s);
+         
+    }
+    
+        public List<fr.utbm.core.entity.Session> getSessionByCourse(int id_course){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        List<fr.utbm.core.entity.Session> lsts;
+        Query query = session.createQuery("from Session inner join Course on id_course ");
+        lsts = query.list();
+        return lsts;
+    }
 }
