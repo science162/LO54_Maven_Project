@@ -30,10 +30,11 @@ public class SessionDao {
          
     }
     
-        public List<fr.utbm.core.entity.Session> getSessionByCourse(int id_course){
+    public List<fr.utbm.core.entity.Session> getSessionByCourse(int id_course){
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         List<fr.utbm.core.entity.Session> lsts;
-        Query query = session.createQuery("from Session inner join Course on id_course ");
+        Query query = session.createQuery("from Session as s inner join s.course where s.course.id_course = ?");
+        query.setParameter(0, id_course);
         lsts = query.list();
         return lsts;
     }

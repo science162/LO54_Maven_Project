@@ -27,7 +27,6 @@ public class LocationDao implements java.io.Serializable {
       public void saveLocation(Location l){
          Session session = HibernateUtil.getSessionFactory().openSession();
          session.beginTransaction();
-         session.save(l);
-         
+         session.save(l);        
     }
 }
