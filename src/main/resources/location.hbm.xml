@@ -5,8 +5,8 @@
 	<id column="id_location" name="id">
   		<generator class="identity"/>
   	</id>
-  	<property column="street" name="street" not-null="true"/>
-  	<property column="postal_code" name="postal_code" not-null="true"/>
+  	<property column="street" name="street" not-null="false"/>
+  	<property column="postal_code" name="postal_code" not-null="false"/>
   	<property column="city" name="city" not-null="true"/>
   	<property column="country" name="country" not-null="true"/>
   </class>
