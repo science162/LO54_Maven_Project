@@ -19,7 +19,7 @@ import org.hibernate.Session;
 public class CourseDao implements java.io.Serializable {
     
     public Course getCourseById(int id){
-         Session session = HibernateUtil.getSessionFactory().openSession();
+         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
          session.beginTransaction();
          Course c = new Course();
          c = (Course)session.get(Course.class, id);
@@ -27,15 +27,23 @@ public class CourseDao implements java.io.Serializable {
     }
        
     public List<Course> listCourse(){
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         List<Course> lstc = new ArrayList<Course>();
         Query query = session.createQuery("from Course");
         lstc = query.list();
         return lstc;
     }
     
+    public List<Course> listCourse(String s){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        List<Course> lstc = new ArrayList<Course>();
+        Query query = session.createQuery("from Course c where c.title like %"+s+"%");
+        lstc = query.list();
+        return lstc;
+    }
+    
     public void saveCourse(Course C){
-         Session session = HibernateUtil.getSessionFactory().openSession();
+         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
          session.beginTransaction();
          session.save(C);        
     }
