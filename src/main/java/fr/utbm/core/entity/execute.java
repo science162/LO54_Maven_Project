@@ -5,8 +5,8 @@
  */
 package fr.utbm.core.entity;
 
+import fr.utbm.core.service.Formations;
 import fr.utbm.core.util.HibernateUtil;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -19,6 +19,12 @@ public class execute {
 //        System.out.println(cdao.getClientById(1));
     HibernateUtil hu = new HibernateUtil();
     Date d = new Date();
-    System.out.println(new SimpleDateFormat("dd-MM-yy").format(d));
+    for(Sesion c : new Formations().listSessionByCity("pari")){
+         System.out.println(c.getCourse().getTitle());
+         System.out.println(c.getLocation().getCity());
+         System.out.println(c.getStart_date());
+         System.out.println(c.getEnd_date());
+         System.out.println("---------------------------------------");
+        }
     }
-}
+ }

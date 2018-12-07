@@ -1,0 +1,9 @@
+
+.container {
+ background-color: azure;
+}
+#titre {
+    align-items:  center;
+    font-size: 20px;
+    font-family: Futura;
+}

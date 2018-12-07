@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.Objects;
 
 
-public class Session implements java.io.Serializable {
+public class Sesion implements java.io.Serializable {
 
     private Course course;
     private int id_session;
@@ -18,10 +18,10 @@ public class Session implements java.io.Serializable {
     private int nbre_place;
     private Location location;
 
-    public Session() {
+    public Sesion() {
     }
 
-    public Session(Course course, Date start_date, Date end_date, int nbre_place, Location location) {
+    public Sesion(Course course, Date start_date, Date end_date, int nbre_place, Location location) {
         this.course = course;
         this.start_date = start_date;
         this.end_date = end_date;
@@ -110,7 +110,7 @@ public class Session implements java.io.Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Session other = (Session) obj;
+        final Sesion other = (Sesion) obj;
         if (this.id_session != other.id_session) {
             return false;
         }

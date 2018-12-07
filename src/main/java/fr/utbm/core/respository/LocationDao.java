@@ -19,13 +19,13 @@ public class LocationDao implements java.io.Serializable {
     public List<Location> listCourse(){
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         List<Location> lstl;
-        Query query = session.createQuery("from Course");
+        Query query = session.createQuery("from Location");
         lstl = query.list();
         return lstl;
     }
     
       public void saveLocation(Location l){
-         Session session = HibernateUtil.getSessionFactory().openSession();
+         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
          session.beginTransaction();
          session.save(l);        
     }

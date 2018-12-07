@@ -14,13 +14,13 @@ import java.util.Objects;
  */
 public class Inscrire implements java.io.Serializable{
     private Client client;
-    private  Session session;
+    private  Sesion session;
     private Date date_inscription;
 
     public Inscrire() {
     }
 
-    public Inscrire(Client client, Course course, Session session, Date date_inscription) {
+    public Inscrire(Client client, Sesion session, Date date_inscription) {
         this.client = client;
         this.session = session;
         this.date_inscription = date_inscription;
@@ -30,10 +30,6 @@ public class Inscrire implements java.io.Serializable{
         return client;
     }
 
-    public Session getSession() {
-        return session;
-    }
-
     public Date getDate_inscription() {
         return date_inscription;
     }
@@ -41,10 +37,17 @@ public class Inscrire implements java.io.Serializable{
     public void setClient(Client client) {
         this.client = client;
     }
+      
 
-    public void setSession(Session session) {
+    public Sesion getSession() {
+        return session;
+    }
+
+    public void setSession(Sesion session) {
         this.session = session;
     }
+
+       
 
     public void setDate_inscription(Date date_inscription) {
         this.date_inscription = date_inscription;

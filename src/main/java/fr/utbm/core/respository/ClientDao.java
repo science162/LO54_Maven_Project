@@ -31,9 +31,15 @@ public class ClientDao implements java.io.Serializable{
     public List<Client> listCourse(){
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         List<Client> lstc = new ArrayList<Client>();
-        Query query = session.createQuery("from Course");
+        Query query = session.createQuery("from Client");
         lstc = query.list();
         return lstc;
+    }
+    
+    public void saveCourse(Client C){
+         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+         session.beginTransaction();
+         session.save(C);        
     }
     
  

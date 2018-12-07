@@ -18,6 +18,7 @@ public class Location implements java.io.Serializable {
     private String postal_code;
     private String city;
     private String country;
+    
 
     
     public Location() {

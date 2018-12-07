@@ -8,9 +8,9 @@
     <property column="lastname" name="lastname" not-null="true"/>
     <property column="firstname" name="firstname" not-null="true"/>
     <property column="address" name="address" not-null="true"/>
-    <property column="phone" name="phone" not-null="true"/>
+    <property column="phone" name="phone" not-null="true" unique="true"/>
     <property column="email" name="email" not-null="true"/>
-    <property column="password" name="password" not-null="true"/>
-    <property column="client_type" name="type" not-null="true"/>
+    <property column="password" name="password" not-null="false"/>
+    <property column="client_type" name="type" not-null="false"/>
   </class>
 </hibernate-mapping>
