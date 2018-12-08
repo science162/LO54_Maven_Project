@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="fr.utbm.core.entity.Location" table="location">
+	<id column="id_location" name="id">
+  		<generator class="identity"/>
+  	</id>
+  	<property column="street" name="street" not-null="false"/>
+  	<property column="postal_code" name="postal_code" not-null="false"/>
+  	<property column="city" name="city" not-null="true"/>
+  	<property column="country" name="country" not-null="true"/>
+  </class>
+</hibernate-mapping>

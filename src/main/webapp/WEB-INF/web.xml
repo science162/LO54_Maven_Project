@@ -22,7 +22,7 @@
         </init-param>
         <init-param>
             <param-name>jersey.config.servlet.filter.staticContentRegex</param-name>
-            <param-value> /WEB-INF/(css|pages)/.*</param-value>
+            <param-value>/(js|images|css|(WEB-INF/pages))/.*</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </filter>

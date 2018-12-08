@@ -20,13 +20,10 @@
             <header>
                 <ul class="nav">
                     <li class="nav-item">
-                      <a class="nav-link active" href="#">Acceuil</a>
+                      <a class="nav-link active" href="/LO54_maven_project">Acceuil</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="serve">Inscrption</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="serve">Connextion</a>
+                      <a class="nav-link" href="connexion">Connextion</a>
                     </li>
                 </ul>
             </header>
@@ -36,27 +33,22 @@
                     <div class="form-group">
                       <label for="name">First Name : </label>
                       <input name="fname" type="text" class="form-control"  placeholder="Enter First Name">
-                      <small  class="form-text text-muted">We'll never share your Name with anyone else.</small>
                     </div>
                     <div class="form-group">
                       <label for="name">Last Name : </label>
                       <input name="lname" type="text" class="form-control"  placeholder="Enter Last Name">
-                      <small class="form-text text-muted">We'll never share your Name with anyone else.</small>
                     </div>
                     <div class="form-group">
                       <label for="address">Address : </label>
                       <input name="address" type="text" class="form-control"  placeholder="Enter  Address">
-                      <small class="form-text text-muted">We'll never share your Address with anyone else.</small>
                     </div>
                     <div class="form-group">
                       <label for="address">Phone : </label>
                       <input name="phone" maxlength="14" type="text" class="form-control"  placeholder="Enter  Phone Number">
-                      <small class="form-text text-muted">We'll never share your Phone Number with anyone else.</small>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputEmail1">Email address</label>
                       <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Password</label>

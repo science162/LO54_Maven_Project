@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="fr.utbm.core.entity.Client" table="client">
+    <id column="ID_CLT" name="id_Clt">
+      <generator class="identity"/>
+    </id>
+    <property column="lastname" name="lastname" not-null="true"/>
+    <property column="firstname" name="firstname" not-null="true"/>
+    <property column="address" name="address" not-null="true"/>
+    <property column="phone" name="phone" not-null="true" unique="true"/>
+    <property column="email" name="email" not-null="true"/>
+    <property column="password" name="password" not-null="false"/>
+    <property column="client_type" name="type" not-null="false"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="fr.utbm.core.entity.Sesion" table="session">
+    <id column="id_session" name="id_session">
+      <generator class="identity"/>
+    </id>
+    <property column="start_date" name="start_date" type="date" not-null="true"/>
+    <property column="end_date" name="end_date" type="date" not-null="true"/>
+    <property column="nbre_place" name="nbre_place" not-null="true"/>
+    <many-to-one class="fr.utbm.core.entity.Course" column="id_course" name="course"/>
+    <many-to-one class="fr.utbm.core.entity.Location" column="id_location" name="location" unique="true"/>
+  </class>
+</hibernate-mapping>

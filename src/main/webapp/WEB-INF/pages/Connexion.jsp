@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/pages/style1.css" type="text/css"/>
+        <link rel="stylesheet" href="css/style1.css" type="text/css"/>
 
     </head>
     <body>
@@ -20,13 +20,10 @@
             <header>
                 <ul class="nav">
                     <li class="nav-item">
-                      <a class="nav-link active" href="#">Acceuil</a>
+                      <a class="nav-link active" href="/LO54_maven_project">Acceuil</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="serve">Inscrption</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="serve">Connextion</a>
+                      <a class="nav-link" href="connexion">Connextion</a>
                     </li>
                 </ul>
             </header>
@@ -43,8 +40,12 @@
                           <input name="password" type="password" class="form-control col-md-6" id="exampleInputPassword1" placeholder="Password">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
-                    </fieldset>
+                   </fieldset>
                 </form>
+            
+            <div>
+                <p><br/><a href = "inscrire" >S'inscrire</a></p>
+            </div>
             
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
