@@ -37,7 +37,8 @@ public class CourseDao implements java.io.Serializable {
     public List<Course> listCourse(String s){
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         List<Course> lstc = new ArrayList<Course>();
-        Query query = session.createQuery("from Course c where c.title like %"+s+"%");
+        Query query = session.createQuery("from Course c where lower(c.title) like lower(?)");
+        query.setParameter(0, s);
         lstc = query.list();
         return lstc;
     }

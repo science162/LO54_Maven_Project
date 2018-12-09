@@ -5,8 +5,10 @@
  */
 package fr.utbm.core.service;
 
+import fr.utbm.core.entity.Client;
 import fr.utbm.core.entity.Course;
 import fr.utbm.core.entity.Sesion;
+import fr.utbm.core.respository.ClientDao;
 import fr.utbm.core.respository.CourseDao;
 import fr.utbm.core.respository.SessionDao;
 import fr.utbm.core.util.HibernateUtil;
@@ -65,6 +67,24 @@ public List<Sesion> listSessionByCity(String city){
     return cours;
  }
    
-   
-    
+ public List<Course> listCoursKeyWord(String key){
+    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    List<Course> cours = new ArrayList<Course>();
+    session.beginTransaction();
+    cours = new CourseDao().listCourse("%"+key+"%");
+    session.getTransaction().commit();
+    //session.close();
+    return cours;
+ }  
+ 
+ public Client clientExist(String phone, String password){
+    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    List<Client> lstc = new ArrayList<Client>();
+    lstc = new ClientDao().clientExist(phone, password);
+    Client client = new Client();
+    client = lstc.get(0);
+    session.beginTransaction().commit();
+    //session.close();
+    return client;
+ }
 }

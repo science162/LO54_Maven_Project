@@ -19,11 +19,9 @@ public class execute {
 //        System.out.println(cdao.getClientById(1));
     HibernateUtil hu = new HibernateUtil();
     Date d = new Date();
-    for(Sesion c : new Formations().listSessionByCity("pari")){
-         System.out.println(c.getCourse().getTitle());
-         System.out.println(c.getLocation().getCity());
-         System.out.println(c.getStart_date());
-         System.out.println(c.getEnd_date());
+    for(Course c : new Formations().listFormation()){
+         System.out.println(c.getTitle());
+ 
          System.out.println("---------------------------------------");
         }
     }

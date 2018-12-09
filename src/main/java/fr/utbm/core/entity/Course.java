@@ -13,13 +13,15 @@ public class Course implements java.io.Serializable {
 
     private int id_course;
     private String title;
+    private String libelle;
 
     public Course() {
     }
 
-    public Course(int code, String title) {
-        this.id_course = code;
+    public Course(int id_course, String title, String libelle) {
+        this.id_course = id_course;
         this.title = title;
+        this.libelle = libelle;
     }
 
     public int getId_course() {
@@ -29,6 +31,15 @@ public class Course implements java.io.Serializable {
     public void setId_course(int id_course) {
         this.id_course = id_course;
     }
+    
+    public String getLibelle() {
+        return libelle;
+    }
+
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
+    }
+    
 
     public String getTitle() {
         return title;
@@ -46,8 +57,9 @@ public class Course implements java.io.Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.id_course);
-        hash = 53 * hash + Objects.hashCode(this.title);
+        hash = 31 * hash + this.id_course;
+        hash = 31 * hash + (this.title != null ? this.title.hashCode() : 0);
+        hash = 31 * hash + (this.libelle != null ? this.libelle.hashCode() : 0);
         return hash;
     }
 
@@ -63,13 +75,18 @@ public class Course implements java.io.Serializable {
             return false;
         }
         final Course other = (Course) obj;
-        if (!Objects.equals(this.id_course, other.id_course)) {
+        if (this.id_course != other.id_course) {
             return false;
         }
-        if (!Objects.equals(this.title, other.title)) {
+        if ((this.title == null) ? (other.title != null) : !this.title.equals(other.title)) {
+            return false;
+        }
+        if ((this.libelle == null) ? (other.libelle != null) : !this.libelle.equals(other.libelle)) {
             return false;
         }
         return true;
     }
+
+
 
 }

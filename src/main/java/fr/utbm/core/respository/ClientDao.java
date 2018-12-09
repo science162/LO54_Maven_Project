@@ -28,10 +28,20 @@ public class ClientDao implements java.io.Serializable{
          return c;
     }
     
-    public List<Client> listCourse(){
+    public List<Client> listClient(){
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         List<Client> lstc = new ArrayList<Client>();
         Query query = session.createQuery("from Client");
+        lstc = query.list();
+        return lstc;
+    }
+    
+    public List<Client> clientExist(String phone, String password){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        List<Client> lstc = new ArrayList<Client>();
+        Query query = session.createQuery("from Client c where c.phone like ? and c.password ?");
+        query.setParameter(0, phone);
+        query.setParameter(0, password);
         lstc = query.list();
         return lstc;
     }
