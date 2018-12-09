@@ -18,11 +18,11 @@ public class execute {
 //     ClientDao cdao = new ClientDao();
 //        System.out.println(cdao.getClientById(1));
     HibernateUtil hu = new HibernateUtil();
-    Date d = new Date();
+   /* Date d = new Date();
     for(Course c : new Formations().listFormation()){
          System.out.println(c.getTitle());
  
          System.out.println("---------------------------------------");
         }
-    }
+    */}
  }
