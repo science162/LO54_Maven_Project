@@ -9,10 +9,9 @@ import fr.utbm.core.service.Formations;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -53,11 +52,12 @@ public class FormationJaxWebSercice implements java.io.Serializable{
         GenericEntity<List<Course>> myEntity = new GenericEntity<List<Course>>(listCours) {};
         return Response.status(200).entity(myEntity).build();
     }
-    
+    @Path("/bytitle/{title}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response formationByTitle(@QueryParam("title") String title) {
+    public Response formationByTitle(@PathParam("title") String title) {
         List<Course> listCours = new ArrayList<Course>();
+        System.out.println(title);
         listCours = new Formations().listCoursKeyWord(title);
         GenericEntity<List<Course>> myEntity = new GenericEntity<List<Course>>(listCours) {};
         return Response.status(200).entity(myEntity).build();
