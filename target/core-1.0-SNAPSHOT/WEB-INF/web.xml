@@ -7,7 +7,10 @@
             <param-name>jersey.config.server.provider.packages</param-name>
             <param-value>fr.utbm.core.ressources</param-value>
         </init-param>
-
+        <init-param>
+            <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+            <param-value>true</param-value>
+	</init-param>
         <init-param>
             <param-name>jersey.config.server.mvc.templateBasePath.jsp</param-name>
             <param-value>/WEB-INF/pages</param-value>

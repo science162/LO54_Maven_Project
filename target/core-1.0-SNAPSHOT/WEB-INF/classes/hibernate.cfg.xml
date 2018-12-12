@@ -10,7 +10,7 @@
     <property name="dialect">org.hibernate.dialect.DerbyDialect</property>
     <property name="current_session_context_class">thread</property>
     <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
-    <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.hbm2ddl.auto">validate</property>
     <mapping resource="client.hbm.xml"/>
     <mapping resource="location.hbm.xml"/>
     <mapping resource="course.hbm.xml"/>

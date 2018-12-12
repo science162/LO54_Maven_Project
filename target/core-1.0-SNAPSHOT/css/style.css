@@ -1,17 +1,14 @@
 
 body{
-    background-image: url("/LO54_maven_project/images/imbg6.png"); 
-    background-attachment: fixed ;
-    background-size: contain;
-    
+    background-image: url("/LO54_maven_project/images/imbg7.jpg"); 
+    background-attachment: fixed ;    
 }
 
 #titre {
     align-items:  center;
     font-size: 40px;
     font-family: Futura;
-    color: aliceblue;
-    
+    color: rgb(23, 33, 44);   
 }
 
 legend.connect {
@@ -19,36 +16,53 @@ legend.connect {
     border: none ;
     font-size: 24px;
     font-style: italic;
+ 
 }
 
 fieldset.connect {
     border: solid 1px #DDD !important;
     padding: 0 10px 10px 10px;
     border-bottom: none;
+    border-radius: 15px;
+    background-color:#6c757d  ;
+    color: #ffffff;
 }
 
 nav{
     margin-top: 0.7%;
     border-radius: 10px;
     position: absolute;
+  
+}
+
+.nav-link{
+    color: #c8c6d4;
 }
 
 .bg{
-    background-color: rgb(162, 213, 236) ;
+    background-color: #6c757d  ;
 }
 
 .formPosition{
-    color: aliceblue;
+    color: rgb(4, 18, 31);
     font-size: 20px;
-    margin-top: 10%
+    margin-top: 10%;
+   
 }
 
 footer{
     border-radius: 10px;
-    color: rgb(144, 188, 238);
+    color: rgb(23, 33, 44);
 }
 
 .fcon{
-    margin-top: 20%;
+    margin-top: 18%;
     text-align: center;
+}
+
+#btn{
+    padding-bottom: 0%;
+}
+#cours{
+    margin: 10px;
 }
