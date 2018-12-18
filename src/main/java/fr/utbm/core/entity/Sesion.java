@@ -6,7 +6,6 @@
 package fr.utbm.core.entity;
 
 import java.util.Date;
-import java.util.Objects;
 
 
 public class Sesion implements java.io.Serializable {

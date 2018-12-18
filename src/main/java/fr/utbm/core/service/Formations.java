@@ -7,7 +7,6 @@ package fr.utbm.core.service;
 
 import fr.utbm.core.entity.Client;
 import fr.utbm.core.entity.Course;
-import fr.utbm.core.entity.Inscrire;
 import fr.utbm.core.entity.Sesion;
 import fr.utbm.core.respository.ClientDao;
 import fr.utbm.core.respository.CourseDao;
@@ -45,7 +44,7 @@ public List<Course> listCoursKeyWord(String key){
     session.beginTransaction();
     cours = new CourseDao().listCourse("%"+key+"%");
     session.getTransaction().commit();
-    session.close();
+    //session.close();
     return cours;
  }  
 
@@ -58,7 +57,7 @@ public List<Sesion> listSession(){
     session.beginTransaction();
     cours = courdd.listSession();
     session.getTransaction().commit();
-    session.close();
+    //   session.close();
     return cours;
  }
  
