@@ -16,6 +16,7 @@
         <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
         <link rel="icon" href="images/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css" type="text/css"/>
         
 
@@ -29,8 +30,13 @@
                 <nav class="navbar navbar-expand-lg navbar-light bg">
                     <a class="navbar-brand" href="#"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon"></span>
                     </button>
+                    <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#tab" aria-expanded="false" aria-controls="collapseExample">
+                            Session
+                    </button>
+
+
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto ">
@@ -40,17 +46,21 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="connexion">Connexion</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Disabled</a>
-                            </li>
                         </ul>
                         <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" name="title" id="navInput" type="search" placeholder="Search" aria-label="Search">
+                            <input class="form-control mr-sm-2" name="title" id="navInput" type="search" placeholder="cours" aria-label="Search">
+                            <input class="form-control mr-sm-2" name="city" id="navCity" type="search" placeholder="city" aria-label="Search">
+                            <input data-provide="datepicker" class="form-control mr-sm-2" name="datepicker" id="navDate" type="date" placeholder="Date" aria-label="Search">
                             <button class="btn btn-outline-primary" type="button"  id="search">Search cours</button>
                         </form>
+                 
                     </div>
                 </nav>
+                <div>
+
+                </div>
             </header>
+
 
 
 
@@ -59,15 +69,15 @@
                     <h1 id="titre"> Formations disponibles </h1>
                 </div>
             </div>
+
             <div id="contentCours" class="row">
-
             </div>
-
 
 
 
             <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
+            <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" ></script>
             <script src="js/main.js"></script>
             <footer class="page-footer font-small unique-color-dark  pt-4"> 

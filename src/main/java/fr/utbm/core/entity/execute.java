@@ -5,24 +5,29 @@
  */
 package fr.utbm.core.entity;
 
-import fr.utbm.core.service.Formations;
-import fr.utbm.core.util.HibernateUtil;
-import java.util.Date;
-
 /**
  *
  * @author albert-einst
  */ 
 public class execute {
     public static void main(String[] argv){
-//     ClientDao cdao = new ClientDao();
-//        System.out.println(cdao.getClientById(1));
-    HibernateUtil hu = new HibernateUtil();
-   /* Date d = new Date();
-    for(Course c : new Formations().listFormation()){
-         System.out.println(c.getTitle());
- 
+        
+       /*for(Sesion c : new Formations().listSessionFilter("2018-12-19", "", "")){
+           
+         System.out.println(c.getCourse());
+         System.out.println(c.getLocation().getCity());
+         System.out.println(c.getStart_date());
          System.out.println("---------------------------------------");
-        }
+         
+        }*/
+
+     /*   Client c  = new Client();
+        Sesion s = new Sesion();
+        c = new Formations().clientExist("0668350811", "paola.kamdem");
+        s = new Formations().getSesion(4);
+       // Date d = new Date(System.currentTimeMillis());
+        //new Formations().register(c, s, d);
+      System.out.println(s.getNbre_inscrit());
+       
     */}
  }

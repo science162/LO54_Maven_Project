@@ -46,7 +46,7 @@ nav{
 .formPosition{
     color: rgb(4, 18, 31);
     font-size: 20px;
-    margin-top: 10%;
+    margin-top: 5%;
    
 }
 
@@ -65,4 +65,13 @@ footer{
 }
 #cours{
     margin: 10px;
+}
+#register{
+    margin: 0 auto;
+}
+
+.sessioPosition{
+    color: rgb(4, 18, 31);
+    font-size: 20px;
+    margin-top: 5%;
 }

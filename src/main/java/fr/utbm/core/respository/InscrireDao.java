@@ -22,18 +22,28 @@ public class InscrireDao implements java.io.Serializable{
     public void register(Client c, Sesion s, Date d){
         
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
         Inscrire I = new Inscrire(c,s,d);
         session.save(I);
-        Query query = session.createQuery("update Sesion session set nbre_place = nbre_place - 1 where session.id_session = "+s.getId_session());
+        Query query = session.createQuery("update Sesion session set nbre_inscrit = nbre_inscrit + 1 where session.id_session = "+s.getId_session());
         query.executeUpdate();
+        session.getTransaction().commit();    
     }
     
     public void unregister(Client c, Sesion s, Date d){
-        
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        
         Inscrire I = new Inscrire(c,s,d);
-        session.save(I);
-        Query query = session.createQuery("update Sesion session set nbre_place = nbre_place - 1 where session.id_session = "+s.getId_session());
+        Query query = session.createQuery("delete from Inscrire I where I.client.id_Clt = ? and I.session.id_session = ?");
+        query.setParameter(0, c.getId_Clt());
+        query.setParameter(1, s.getId_session());
         query.executeUpdate();
+        
+        query = session.createQuery("update Sesion session set nbre_inscrit = nbre_inscrit - 1 where session.id_session = "+s.getId_session());
+        
+        query.executeUpdate();
+        
+        
     }
 }

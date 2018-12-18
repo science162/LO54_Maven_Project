@@ -33,6 +33,16 @@ public class Client implements java.io.Serializable {
         this.type = type;
     }
     
+    public Client(ClientRegister c){
+        this.lastname = c.getLastname();
+        this.firstname = c.getFirstname();
+        this.address = c.getAddress();
+        this.phone = c.getPhone();
+        this.email = c.getEmail();
+        this.password = c.getPassword();
+        this.type = c.getType();
+    }
+    
     public int getId_Clt() {
         return id_Clt;
     }

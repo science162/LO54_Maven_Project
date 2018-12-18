@@ -18,16 +18,7 @@ import org.hibernate.Session;
  */
 public class ClientDao implements java.io.Serializable{
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-    
-    public Client getClientById(int id){
-         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-         session.beginTransaction();
-         Client c = new Client();
-         c = (Client)session.get(Client.class, id);
-         session.close();
-         return c;
-    }
-    
+     
     public List<Client> listClient(){
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         List<Client> lstc = new ArrayList<Client>();
@@ -36,17 +27,40 @@ public class ClientDao implements java.io.Serializable{
         return lstc;
     }
     
-    public List<Client> clientExist(String phone, String password){
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        List<Client> lstc = new ArrayList<Client>();
-        Query query = session.createQuery("from Client c where c.phone like ? and c.password ?");
-        query.setParameter(0, phone);
-        query.setParameter(0, password);
-        lstc = query.list();
-        return lstc;
+     public Client getClientById(int id){
+         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+         session.beginTransaction();
+         Client c = new Client();
+         c = (Client)session.get(Client.class, id);
+         session.close();
+         return c;
     }
     
-    public void saveCourse(Client C){
+        public Client getClientByPhone(int phone){
+         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+         session.beginTransaction();
+         Client c = new Client();
+         Query query = session.createQuery("from Client c where c.phone = ?");
+        query.setParameter(0, phone);
+        c = (Client)query.list().get(0);
+         return c;
+    }
+    
+    public Client clientExist(String phone, String password){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        Client c = new Client();
+        Query query = session.createQuery("from Client c where c.phone like ? and c.password like ?");
+        query.setParameter(0, phone);
+        query.setParameter(1, password);
+        if(query.list().isEmpty()){
+         return null;  
+        }
+        c = (Client)query.list().get(0);
+        return c;
+    }
+    
+    public void save(Client C){
          Session session = HibernateUtil.getSessionFactory().getCurrentSession();
          session.beginTransaction();
          session.save(C);        
