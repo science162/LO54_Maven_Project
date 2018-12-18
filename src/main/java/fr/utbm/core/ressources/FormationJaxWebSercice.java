@@ -41,8 +41,9 @@ public class FormationJaxWebSercice implements java.io.Serializable{
     @Path("/inscrire")
     @GET
     public Viewable inscrire(@QueryParam("id_session") int id_session) {
+        Formations f = new Formations();
         Sesion s = new Sesion();
-        s = new Formations().getSesion(id_session);
+        s = f.getSesion(id_session);
         return new Viewable("/inscription", s);
     }
     
@@ -72,15 +73,7 @@ public class FormationJaxWebSercice implements java.io.Serializable{
         return Response.status(200).entity(myEntity).build();
     }
     
-    @Path("/sessionTitle{title}")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getListSessionByCourseTitle(@PathParam("title") String title){
-        List<Sesion> listCours = new ArrayList<Sesion>();
-        listCours = new Formations().listSessionByCourse(title);
-        GenericEntity<List<Sesion>> myEntity = new GenericEntity<List<Sesion>>(listCours) {};
-        return Response.status(200).entity(myEntity).build();
-    }
+
     
     @Path("/sessionFilter")
     @GET
@@ -92,36 +85,6 @@ public class FormationJaxWebSercice implements java.io.Serializable{
             {
         List<Sesion> listCours = new ArrayList<Sesion>();
         listCours = new Formations().listSessionFilter(date, title, city);
-        GenericEntity<List<Sesion>> myEntity = new GenericEntity<List<Sesion>>(listCours) {};
-        return Response.status(200).entity(myEntity).build();
-    }
-    
-    @Path("/sessionCity{city}")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getListSessionByCourseCity(@PathParam("city") String city){
-        List<Sesion> listCours = new ArrayList<Sesion>();
-        listCours = new Formations().listSessionByCity(city);
-        GenericEntity<List<Sesion>> myEntity = new GenericEntity<List<Sesion>>(listCours) {};
-        return Response.status(200).entity(myEntity).build();
-    }
-    
-    @Path("/sessionStartDate{start_date}")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getListSessionByCourseStartDate(@PathParam("start_date") String start_date){
-        List<Sesion> listCours = new ArrayList<Sesion>();
-        listCours = new Formations().listSessionBStartDate(Date.valueOf(start_date));
-        GenericEntity<List<Sesion>> myEntity = new GenericEntity<List<Sesion>>(listCours) {};
-        return Response.status(200).entity(myEntity).build();
-    }
-    
-    @Path("/sessionEndDate{end_date}")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getListSessionByCourseEndDate(@PathParam("end_date") String end_date){
-        List<Sesion> listCours = new ArrayList<Sesion>();
-        listCours = new Formations().listSessionByEndDate(Date.valueOf(end_date));
         GenericEntity<List<Sesion>> myEntity = new GenericEntity<List<Sesion>>(listCours) {};
         return Response.status(200).entity(myEntity).build();
     }

@@ -92,16 +92,12 @@
                             <label for="id_session" class="col-md-2">Session :  </label>
                             <input id="id_session" name="id_session" type="text" class="form-control col-md-4" disabled value="${it.id_session}"  placeholder="Enter First Name">
                         </div>
-                        <button type="button" class="btn btn-primary" id="inscriptionBtn" data-toggle="modal" data-target="ModalCenter">Submit</button>
+                        <button type="button" class="btn btn-primary" id="inscriptionBtn" data-toggle="modal" data-target="#ModalCenter">Submit</button>
                         
                       
                     </fieldset>
                     
                 </form>
-
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalCenter">
-                    Launch demo modal
-                  </button>
                   
                   <!-- Modal -->
                   <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">

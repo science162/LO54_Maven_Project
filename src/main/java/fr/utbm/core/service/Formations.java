@@ -35,7 +35,7 @@ public List<Course> listFormation(){
     session.beginTransaction();
     cours = courdd.listCourse();
     session.getTransaction().commit();
-    session.close();
+    //session.close();
     return cours;
  }
 
@@ -62,49 +62,8 @@ public List<Sesion> listSession(){
     return cours;
  }
  
-public List<Sesion> listSessionByCourse(String title){
-    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-    List<Sesion> cours = new ArrayList<Sesion>();
-    SessionDao courdd = new SessionDao();
-    session.beginTransaction();
-    cours = courdd.getSessionByCourse("%"+title+"%");
-    session.getTransaction().commit();
-    session.close();
-    return cours;
- }
 
-public List<Sesion> listSessionBStartDate(Date date){
-    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-    List<Sesion> cours = new ArrayList<Sesion>();
-    SessionDao courdd = new SessionDao();
-    session.beginTransaction();
-    cours = courdd.getSessionByStartDate(date);
-    session.getTransaction().commit();
-    session.close();
-    return cours;
- }
 
-public List<Sesion> listSessionByEndDate(Date date){
-    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-    List<Sesion> cours = new ArrayList<Sesion>();
-    SessionDao courdd = new SessionDao();
-    session.beginTransaction();
-    cours = courdd.getSessionByEndDate(date);
-    session.getTransaction().commit();
-    session.close();
-    return cours;
- }
-
-public List<Sesion> listSessionByCity(String city){
-    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-    List<Sesion> cours = new ArrayList<Sesion>();
-    SessionDao courdd = new SessionDao();
-    session.beginTransaction();
-    cours = courdd.getSessionByCity("%"+city+"%");
-    session.getTransaction().commit();
-    session.close();
-    return cours;
- }
 
 public List<Sesion> listSessionFilter(String date, String title ,String city){
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -113,15 +72,16 @@ public List<Sesion> listSessionFilter(String date, String title ,String city){
     session.beginTransaction();
     cours = courdd.getSessionFilter(date,"%"+title+"%","%"+city+"%");
     session.getTransaction().commit();
-    session.close();
+    //session.close();
     return cours;
  }
 
  public Sesion getSesion(int id){
-    Session session = HibernateUtil.getSessionFactory().openSession();
+    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     Sesion sesion = new Sesion();
     sesion = new SessionDao().loadSession(id);
-    session.close();
+    session.getTransaction().commit();
+    //session.close();
     return sesion;
  }
 
@@ -134,7 +94,7 @@ public List<Sesion> listSessionFilter(String date, String title ,String city){
     Client client = new Client();
     client = new ClientDao().clientExist(phone, password);
     session.getTransaction().commit();
-    session.close();
+    //session.close();
     return client;
  }
  

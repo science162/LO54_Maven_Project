@@ -60,7 +60,8 @@ function loadSessionFilter(date,title,city){
 
 function subscribe(){
         if($("#fname").val() =='' || $("#phone").val()==''){
-                alert("Champ vide veuillez les remplir");
+                $("#ModalCenterTitle").html(" Form is empty ");
+                $(".modal-body").html("Be sure to fill all inputs before submit");
                 return false;
         }
         var client = {
@@ -81,11 +82,11 @@ function subscribe(){
                 success: function (data) {
                         console.log(data)
                         $("#ModalCenterTitle").html("Register Succsess !!!!");
-                        $("ModalCenterTitle").html("server respond with code 200 to your request : "+data.firstname+" Is now one of our students for this session");
+                        $(".modal-body").html("server respond with code 200 to your request : "+data.firstname+" Is now one of our students for this session");
                 },
                 fail: function(){
                         $("#ModalCenterTitle").html(" Fail ");
-                        $("ModalCenterTitle").html("server was unable to respond with code 200 to your request :please check your informations and try gain");
+                        $(".modal-body").html("server was unable to respond with code 200 to your request :please check your informations and try gain");
                 },
                 
                 data: JSON.stringify(client)

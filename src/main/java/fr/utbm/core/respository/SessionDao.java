@@ -41,54 +41,17 @@ public class SessionDao implements java.io.Serializable {
     public Sesion loadSession(int a){
          Session session = HibernateUtil.getSessionFactory().getCurrentSession();
          session.beginTransaction();
+         Query query = session.createQuery("from Sesion s where s.id_session = ?");
          Sesion s = new Sesion();
-         s = (Sesion)session.load(Sesion.class, a);
+         query.setParameter(0, a);
+         s = (Sesion)query.list().get(0);
             Hibernate.initialize(s.getLocation());
             Hibernate.initialize(s.getCourse());
-        
-         session.getTransaction().commit();
 
          return s;
     }
     
-    public List<Sesion> getSessionByCourse(int id_course){
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        List<fr.utbm.core.entity.Sesion> lsts;
-        Query query = session.createQuery("from Sesion as s inner join s.course where s.course.id_course = ?");
-        query.setParameter(0, id_course);
-        lsts = (List<Sesion>)query.list();
-          for (Sesion s : lsts) {
-            Hibernate.initialize(s.getLocation());
-            Hibernate.initialize(s.getCourse());
-        }
-        return lsts;
-    }
-    
-    public List<Sesion> getSessionByCourse(String title){
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        List<fr.utbm.core.entity.Sesion> lsts;
-        Query query = session.createQuery("from Sesion as s where lower(s.course.title) like lower(?)");
-        query.setParameter(0, title);
-        lsts = (List<Sesion>)query.list();
-          for (Sesion s : lsts) {
-            Hibernate.initialize(s.getLocation());
-            Hibernate.initialize(s.getCourse());
-        }
-        return lsts;
-    }
-    
-    public List<Sesion> getSessionByStartDate(Date date){
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        List<fr.utbm.core.entity.Sesion> lsts;
-        Query query = session.createQuery("from Sesion as s  where s.start_date <= ?");
-        query.setParameter(0, date);
-        lsts = (List<Sesion>)query.list();
-        for (Sesion s : lsts) {
-            Hibernate.initialize(s.getLocation());
-            Hibernate.initialize(s.getCourse());
-        }
-        return lsts;
-    }  
+ 
     public List<Sesion> getSessionFilter(String date, String title, String city){
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         List<fr.utbm.core.entity.Sesion> lsts;
@@ -146,29 +109,5 @@ public class SessionDao implements java.io.Serializable {
         return lsts;
     }
       
-    public List<Sesion> getSessionByEndDate(Date date){
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        List<fr.utbm.core.entity.Sesion> lsts;
-        Query query = session.createQuery("from Sesion as s  where s.end_date >= ?");
-        query.setParameter(0, date);
-        lsts = (List<Sesion>)query.list();
-        for (Sesion s : lsts) {
-            Hibernate.initialize(s.getLocation());
-            Hibernate.initialize(s.getCourse());
-        }
-        return lsts;
-    }
-      
-    public List<Sesion> getSessionByCity(String city){
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        List<fr.utbm.core.entity.Sesion> lsts;
-        Query query = session.createQuery("from Sesion as s where lower(s.location.city) like  lower(?)");
-        query.setParameter(0, city);
-        lsts = (List<Sesion>)query.list();
-        for (Sesion s : lsts) {
-            Hibernate.initialize(s.getLocation());
-            Hibernate.initialize(s.getCourse());
-        }
-        return lsts;
-    }
+
 }
