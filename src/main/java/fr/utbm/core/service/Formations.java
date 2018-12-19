@@ -7,10 +7,12 @@ package fr.utbm.core.service;
 
 import fr.utbm.core.entity.Client;
 import fr.utbm.core.entity.Course;
+import fr.utbm.core.entity.Location;
 import fr.utbm.core.entity.Sesion;
 import fr.utbm.core.respository.ClientDao;
 import fr.utbm.core.respository.CourseDao;
 import fr.utbm.core.respository.InscrireDao;
+import fr.utbm.core.respository.LocationDao;
 import fr.utbm.core.respository.SessionDao;
 import fr.utbm.core.util.HibernateUtil;
 import java.sql.Date;
@@ -23,7 +25,20 @@ import org.hibernate.Session;
  * @author albert-einst
  */
 public class Formations implements java.io.Serializable{
+    
+// Location
 
+ public List<Location> listCity(){
+    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    List<Location> city = new ArrayList<Location>();
+    LocationDao cityDao = new LocationDao();
+    session.beginTransaction();
+    city = cityDao.listCity();
+    session.getTransaction().commit();
+    //session.close();
+    return city;
+ }
+    
     
  // Course methods
     

@@ -49,7 +49,7 @@
                         <label for="exampleInputPassword1" class="col-md-2">Password : </label>
                         <input name="password" type="password" class="form-control col-md-4" id="exampleInputPassword1" placeholder="Password">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-primary">Submit</button>
                 </fieldset>
             </form>
 

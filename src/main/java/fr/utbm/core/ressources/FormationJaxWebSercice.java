@@ -7,6 +7,7 @@ package fr.utbm.core.ressources;
 import fr.utbm.core.entity.Client;
 import fr.utbm.core.entity.ClientRegister;
 import fr.utbm.core.entity.Course;
+import fr.utbm.core.entity.Location;
 import fr.utbm.core.entity.Sesion;
 import fr.utbm.core.service.Formations;
 import java.sql.Date;
@@ -73,7 +74,15 @@ public class FormationJaxWebSercice implements java.io.Serializable{
         return Response.status(200).entity(myEntity).build();
     }
     
-
+    @Path("/city")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getListCity(){
+        List<Location> City = new ArrayList<Location>();
+        City = new Formations().listCity();
+        GenericEntity<List<Location>> myEntity = new GenericEntity<List<Location>>(City) {};
+        return Response.status(200).entity(myEntity).build();
+    }
     
     @Path("/sessionFilter")
     @GET

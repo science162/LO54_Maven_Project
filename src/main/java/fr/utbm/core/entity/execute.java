@@ -5,6 +5,8 @@
  */
 package fr.utbm.core.entity;
 
+import fr.utbm.core.service.Formations;
+
 /**
  *
  * @author albert-einst
@@ -12,14 +14,13 @@ package fr.utbm.core.entity;
 public class execute {
     public static void main(String[] argv){
         
-       /*for(Sesion c : new Formations().listSessionFilter("2018-12-19", "", "")){
-           
-         System.out.println(c.getCourse());
-         System.out.println(c.getLocation().getCity());
-         System.out.println(c.getStart_date());
-         System.out.println("---------------------------------------");
+       for(Location c : new Formations().listCity() ){  
+         System.out.println(c.getCity());
+         //System.out.println(c.getLocation().getCity());
+         //System.out.println(c.getStart_date());
+         //System.out.println("---------------------------------------");
          
-        }*/
+        }
 
      /*   Client c  = new Client();
         Sesion s = new Sesion();
@@ -28,6 +29,6 @@ public class execute {
        // Date d = new Date(System.currentTimeMillis());
         //new Formations().register(c, s, d);
       System.out.println(s.getNbre_inscrit());
-       
-    */}
+     */  
+    }
  }

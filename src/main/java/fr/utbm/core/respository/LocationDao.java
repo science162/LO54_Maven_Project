@@ -16,7 +16,7 @@ import org.hibernate.Session;
  * @author albert-einst
  */
 public class LocationDao implements java.io.Serializable {
-    public List<Location> listCourse(){
+    public List<Location> listCity(){
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         List<Location> lstl;
         Query query = session.createQuery("from Location");

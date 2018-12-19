@@ -1,13 +1,15 @@
 var formations  = [] ;
 var sessions = [];
 var client = [];
-var register_session = 0;
-
+var City = [];
+var ville ="";
 var contenCourHTML = "";
 
 loadCourse();
 
 loadAllSession();
+
+loadCity();
 
 function  loadAll()  {
          formations = [];
@@ -21,6 +23,22 @@ function  loadAll()  {
                         });
                 } 
             });
+}
+
+
+
+function  loadCity()  {
+        City = [];
+        $.ajax({ 
+               url: 'city', 
+               dataType: 'json',  
+               async: false, 
+               success: function(data){ 
+                       data.forEach(element => {
+                               City.push(element.city);                
+                       });
+               } 
+           });
 }
 
 function loadAllSession(){
@@ -104,11 +122,12 @@ function loadCourse(){
 
 $(function() {
         $("#search").click(function(){
-                if($("#navInput").val()=='' && $("#navDate").val() == '' && $("#navCity").val() ==''){
+                if($("#navInput").val()=='' && $("#navDate").val() == '' && $("#navCity option:selected ").text() ==''){
+                loadCity();
                 loadCourse();
                 }
                 else{
-                loadSessionFilter(""+$("#navDate").val(),""+$("#navInput").val(),""+$("#navCity").val());
+                loadSessionFilter(""+$("#navDate").val(),""+$("#navInput").val(),""+$("#navCity option:selected").text());
                 loadAll();
                 formation_session = [];
            
@@ -126,7 +145,7 @@ $(function() {
                 formations = formation_session;
                 renderList();
         }
-        });
+        });   
 
 });
 
@@ -136,13 +155,21 @@ $(function() {
         });
 });
 
-
+window.onload = $(function(){
+   ville="";
+   i = 0;
+   ville = '<option selected></option>';
+   City.forEach(element =>{
+        i += 1
+        ville +='<option value="'+i+'">'+element+'</option>';
+   });
+   $("#navCity").html(ville);
+});
 
 function renderList(){
         contenCourHTML = "";
         var id = $("#contentCours");
         sessionHTML = "";
-
         id.html("");
         formations.forEach(element => {            
                 contenCourHTML += '<div class="card w-75" id="cours">'; 

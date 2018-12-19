@@ -49,7 +49,12 @@
                         </ul>
                         <form class="form-inline my-2 my-lg-0">
                             <input class="form-control mr-sm-2" name="title" id="navInput" type="search" placeholder="cours" aria-label="Search">
-                            <input class="form-control mr-sm-2" name="city" id="navCity" type="search" placeholder="city" aria-label="Search">
+                            <div class="input-group  mr-sm-2">
+                                <select class="custom-select  mr-sm-2" id="navCity">
+
+                                </select>
+                            </div>
+                            <!--input class="form-control mr-sm-2" name="city" id="navCity" type="search" placeholder="city" aria-label="Search"-->
                             <input data-provide="datepicker" class="form-control mr-sm-2" name="datepicker" id="navDate" type="date" placeholder="Date" aria-label="Search">
                             <button class="btn btn-outline-primary" type="button"  id="search">Search cours</button>
                         </form>
